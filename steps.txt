@@ -1,0 +1,36 @@
+Project Management App - Laravel - React - Inertia
+
+
+1) create project -> composer create-project laravel/laravel laravel11-react-inertia
+2) install login with breeze -> composer require laravel/breeze (select React With inertia -> darkmode)
+3) Terminals -> php artisan serve -> npm run dev -> php artisan tinker
+4) darkmode config -> tailwind.config.js  -> darkMode: 'class',
+5) resources/views -> html tag -> class="dark"
+6) User.php add implements-> class User extends Authenticatable *implements MustVerifyEmail*
+7) La configuracion del mail sender está en .env -> por defecto en storage/logs/laravel.log
+8) Generar modelos:
+	Project: 	php artisan make:model Project -fm (factory, migration)
+	Task: 		php artisan make:model Task-fm
+9) Creamos el seeder para project y tasks, modificamos el DatabaseSeeder los campos del User
+10) Relaciones en el modelo Project y Tasks
+11) Configuramos el acceso a la base de datos
+
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=laravel_management_app
+	DB_USERNAME=root
+	DB_PASSWORD=
+
+12) Ejecutamos los seeders -> php artisan migrate --seed
+13) Creamos los controladores:
+
+	(especificamos el modelo con resources(index, create, store....) y requests(clases request separadas))
+
+	ProjectController: php artisan make:controller ProjectController --model=Project --requests --resource
+	TaskController: php artisan make:controller TaskController --model=Task --requests --resource
+
+
+
+
+
