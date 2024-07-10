@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    public function tasks(){
+        // A project cant contain many Tasks
+        return $this->hasMany(Task::class);
+    }
 }
