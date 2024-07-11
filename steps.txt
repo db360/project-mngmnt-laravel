@@ -30,7 +30,24 @@ Project Management App - Laravel - React - Inertia
 	ProjectController: php artisan make:controller ProjectController --model=Project --requests --resource
 	TaskController: php artisan make:controller TaskController --model=Task --requests --resource
 
+14) Creamos las rutas a los controladores route/web
+15) Redefinir en editor.config indent_size = 2
+16) En AuthenticatedLayouts.jsx añadimos pestañas para Projects, All Taks y Users
+17) Creamos los resources para Project, Users y Tasks (con ésto mandamos los datos a React Frontend):
+				php artisan make:resource ProjectResource
+				php artisan make:resource TaskResource
+				php artisan make:resource UserResource
+18) Añadimos al modelo projects los campos, para devolver el objeto :
 
+			public function createdBy() {
+					return $this->belongsTo(User::class, 'created_by');
+				}
+			public function updatedBy() {
+					return $this->belongsTo(User::class, 'created_by');
+				}
+
+19) en los Resources, seleccionamos los datos que queremos mandar pasandoselos a la funcion toArray,
+	los que no queremos mostar lo pasamos como UserResource 'createdBy' => new UserResource($this->createdBy), y en User, formateamos los datos que queremos mostrar
 
 
 
