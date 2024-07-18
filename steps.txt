@@ -47,7 +47,15 @@ Project Management App - Laravel - React - Inertia
 				}
 
 19) en los Resources, seleccionamos los datos que queremos mandar pasandoselos a la funcion toArray,
-	los que no queremos mostar lo pasamos como UserResource 'createdBy' => new UserResource($this->createdBy), y en User, formateamos los datos que queremos mostrar
+	los que no queremos mostar lo pasamos como UserResource 'createdBy' => new UserResource($this->createdBy), y en User, formateamos los datos que queremos mostrar. Para pasar los datos de la BD al componente, primero hacemos el query en el controlador index y retornamos
 
+		inertia("Project/Index", [
+            // Mandamos al componente Index de react los projects
+            'projects' => ProjectResource::collection($projects),
+        ]);
 
+20) Creamos el elemento de paginación en react, que mapea los links que recibe
 
+21) creamos dentro de la carpeta js un archivo constants.js con las constantes para diferentes clases/colores para cada estado
+
+22) creamos las funciones searchFieldChanged para manejar el filtrado en la tabla y creamos un thead nuevo con el campo para buscar y el select para el estado
