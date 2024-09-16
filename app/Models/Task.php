@@ -9,6 +9,11 @@ class Task extends Model
 {
     use HasFactory;
 
+    public function project()
+{
+    return $this->belongsTo(Project::class);
+}
+
     public function assignedUser(){
         return $this->belongsTo(User::class, 'assigned_user_id');
     }
@@ -18,5 +23,5 @@ class Task extends Model
     public function updatedBy(){
         return $this->belongsTo(User::class, 'updated_by');
     }
-    
+
 }
