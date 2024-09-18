@@ -9,6 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [ 'image_path', 'name', 'description', 'status', 'due_date', 'created_by', 'updated_by' ];
+
     public function tasks(){
         // A project cant contain many Tasks
         return $this->hasMany(Task::class);
